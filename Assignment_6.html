@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <!--
-        File: Assignment_6.html
-        91.461 Assignment No. 6: Formatting Dynamic Text
+        File: Assignment No. 6
+        Creating an Interactive Dynamic Table
         Peter Maniatis Peter_Maniatis@Student.uml.edu
         Created 10/5/15
  -->
@@ -17,7 +17,10 @@
 
         <title>Peter Maniatis GUI 1</title>
 
+        <!-- main JS for dynamic multiplication table -->
         <script type="application/javascript">
+            
+            // main function to create multiplication table
             function createMult(){
 
                 // get all of our start and end numbers.
@@ -38,12 +41,9 @@
                     return false;
                 }
                 
-                //make sure end > start, otherwise flipthem.
+                //make sure end > start, otherwise flip them.
                 checkOrder();
                 
-
-                
-
                 // variable that will hold our new content.
                 var newTable = "<table>";
 
@@ -72,19 +72,21 @@
             }
             
             
-            //Function to make sure the end numbers are greater than the start numbers
-            // if not, swap the numbers.
+            // Function to make sure we have an integer.
             function isInt(n){
                 return Number(n) === n && n % 1 === 0;
             }
             
+            
+            
+            //Function to make sure the end numbers are greater than the start numbers
+            // if not, swap the numbers.
             function checkOrder(){
                 if(num1End < num1Start){
                     var tmp = num1End;
                     num1End = num1Start;
                     num1Start= tmp;
                 }
-                
                 if(num2End < num2Start){
                     var tmp = num2End;
                     num2End = num2Start;
@@ -125,14 +127,17 @@
 	
     
 
-      <form id="multForm" onsubmit ="createMult(); return false;"  method="post">
+        <!-- Forms for our multiplication table multiplier and multiplicand start and end -->
+        <form id="multForm" onsubmit ="createMult(); return false;"  method="post">
             Multiplier Start:<br> <input id="num1Start" type="text" name="num1Start" value=""><br>
             Multiplier End:<br> <input id="num1End" type="text" name="num1End" value=""><br>
             Multiplicand Start:<br> <input id="num2Start" type="text" name="num2Start" value=""><br>
             Multiplicand End:<br> <input id="num2End" type="text" name="num2End" value=""><br><br>
             <input type="submit" value="Submit">
-      </form>    
+        </form>    
     
+        
+        <!--Placeholder tag that will get our table-->
         <div id="multContent"><div>
         
         
